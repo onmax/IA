@@ -40,7 +40,7 @@ pip install -r requirements.txt
 Ejecutamos el servidor
 
 ```
-flusk run
+flask run
 ```
 
 ##### Paso 4
