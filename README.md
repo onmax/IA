@@ -37,6 +37,13 @@ pip install -r requirements.txt
 
 ##### Paso 3
 
+Activamos flask.
+
+```
+(LINUX): export venv/bin/activate
+(WINDOWS): set venv/Script/activate
+```
+
 Ejecutamos el servidor
 
 ```
