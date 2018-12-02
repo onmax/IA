@@ -3,11 +3,6 @@ import math
 
 
 class A_star():
-    destination = ''
-    json = ''
-    useless_stations = []
-    route = []
-
     def load_station(self, name):
         for line in self.json:
             for station in self.json[line]:
@@ -23,44 +18,83 @@ class A_star():
     def get_distance(self, station1, station2):
         return math.sqrt((station1["x"] - station2["x"])**2 + (station1["y"] - station2["y"])**2)
 
-    def which_is_closest(self, candidates):
+    def which_is_closest(self):
         current_closest_distance = 99999999
         current_closest = {}
-        for name in candidates:
-            for candidate in candidates[name]:
-                d = self.get_distance(candidate, self.destination)
-                if d < current_closest_distance:
-                    current_closest_distance = d
-                    current_closest = candidate
+        for candidate in self.candidates:
+            d = self.get_distance(candidate, self.destination)
+            if d < current_closest_distance:
+                current_closest_distance = d
+                current_closest = candidate
         return current_closest
 
-    def remove_useless_stations(self, posibilities):
-        for station in posibilities:
-            if station in self.useless_stations or station in self.route:
-                posibilities.remove(station)
-        return posibilities
-    '''
-    1. Comprobobar que no sea si mismo
-    2. Coger adyacentes
-    3. Comprobar cual es mas cercano
-    4.
-    '''
+    def reconstruct_path(self, current):
+        total_path = [current]
+        while current["name"] in self.route.keys():
+            current = self.route[current["name"]]
+            total_path.append(current)
+        return total_path
 
-    def main(self, current, candidates={}):
+    def a_star_algorithm_loop(self):
+        '''
+        This method implements A* with a loop
+        '''
+        while len(self.candidates) != 0:
+            current = self.which_is_closest()
+            if current["name"] == self.destination["name"]:
+                return self.reconstruct_path(current)
+            self.candidates.remove(current)
+            self.closed.append(current)
 
-        posibilities = self.get_connected_stations(current)
-        candidates[current["name"]] = self.remove_useless_stations(
-            posibilities)
+            for connected_station in self.get_connected_stations(current):
+                # Ignore the station which is already evaluated.
+                if connected_station in self.closed:
+                    continue
 
-        new = self.which_is_closest(candidates)
+                # The distance from start to a connected_station
+                cost_of_time = self.g_score[current["name"]] + \
+                    self.get_distance(current, connected_station)
 
-        self.route.append(new)
-        for s in self.route:
-            print(s["name"])
-        if new["x"] == self.destination["x"] and new["y"] == self.destination["y"] and new["name"] == self.destination["name"]:
-            return
-        else:
-            self.main(new, candidates)
+                if connected_station not in self.candidates:  # Discover a new node
+                    self.candidates.append(connected_station)
+                elif cost_of_time >= self.g_score[connected_station["name"]]:
+                    continue
+
+                # This route is the best until now so we save all necessary data
+                self.route[connected_station["name"]] = current
+                self.g_score[connected_station["name"]] = cost_of_time
+                self.f_score[connected_station["name"]] = self.g_score[connected_station["name"]] + \
+                    self.get_distance(connected_station, self.destination)
+
+    def init_variables(self, origin, destination):
+        '''
+        Initialize all necessary variables in variables of a class.
+        It is equal to say `this.variable` in Java. In python, we use `self.variable`
+        '''
+        self.origin = self.load_station(origin)
+        self.destination = self.load_station(destination)
+
+        # Station which have been evaluated and are not good for our solution
+        self.closed = []
+
+        # The set of currently discovered stations that are not evaluated yet
+        # Only the origin is known
+        self.candidates = [self.origin]
+
+        # For each station, which set of stations it can most efficiently be reached from
+        self.route = {}
+
+        # For each station, the cost of getting from the origin to that station.
+        self.g_score = {}
+
+        # The cost of going from start to start is zero because you are already there!!
+        self.g_score[self.origin["name"]] = 0
+
+        # For each station, the total cost of getting from the start node to the goal + the distance in line from that station to destination
+        self.f_score = {}
+
+        # For the first station, f score is the distance in line from origin to destination
+        self.f_score[self.origin["name"]] = (self.origin, self.destination)
 
     def __init__(self, origin, destination):
         if origin == destination:
@@ -70,11 +104,15 @@ class A_star():
         with open('../data/data.json') as data:
             self.json = json.load(data)
 
-        origin = self.load_station(origin)
-        self.destination = self.load_station(destination)
-        self.route = [origin]
+        self.init_variables(origin, destination)
 
-        self.main(origin)
+        res = self.a_star_algorithm_loop()
+        print('\n', res)
+
+        for r in res:
+            print('Estation:', r["name"])
+
+        print('\n')
 
 
-A_star("Minor", "Beruni")
+A_star("Oybek", "Uzbekistan")
