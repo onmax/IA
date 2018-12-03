@@ -6,8 +6,6 @@ from server.a_star import A_star as a_star
 
 @app.route('/', methods=['GET'])
 def index():
-    with open('./data/data.json') as d:
-        data = json.load(d)
     route = {}
     if request.method == 'GET':
         origin = request.args.get('origin')

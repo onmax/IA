@@ -74,17 +74,17 @@
         "x": 423,
         "y": 695,
         "name": "Novza",
-        "connected_to": ["Mirzo Ulugbek","MilliyBog"]
+        "connected_to": ["Mirzo Ulugbek","Milliy Bog"]
     }, {
         "x": 477,
         "y": 775,
-        "name": "MilliyBog",
+        "name": "Milliy Bog",
         "connected_to": ["Novza","Bunyodkor"]
     }, {
         "x": 501,
         "y": 820,
         "name": "Bunyodkor",
-        "connected_to": ["MilliyBog","Pakhtakor"]
+        "connected_to": ["Milliy Bog","Pakhtakor"]
     }, {
         "x": 550,
         "y": 847,
