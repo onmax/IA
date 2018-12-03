@@ -7,36 +7,58 @@
     <title>Obtener datos de las estacions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TarekRaafat/autoComplete.js@1.3.1/dist/css/autoComplete.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 
 <body>
-      <div class="box" id = "top">
+  <section class="stations">
+    <form method="GET" action="/">
 
-        <div class="container">
-
-          <form class="inputs">
-            Origen
-            <input type="text" name="origen"> </input>
-          </form>
-        </div>
-
-        <div class="container">
-          <img src="/home/javitemek/web/arrow.png"></img>
-        </div>
-
-        <div class="container">
-          <form class="inputs">
-            Destino
-          <input type="text" name="origen"> </input>
-        </form>
+      <div class="origin">
+        <label for="origin">Origen</label>
+        <input type="text" name="origin" id="origen" placeholder="Estación Origen" </input>
       </div>
 
+      <i class="fas fa-long-arrow-alt-right"></i>
+      
+      <div class="destination">
+        <label for="destination">Destino</label>
+        <input type="text" name="destination" id="destino" placeholder="Estación Destino" </input>
       </div>
+    </form>
+  </section>
 
-      <div class="box" id = "map"> <img src="../map.jpg" alt=""> </div>
+  <section class="results">
+    <h3>36 minutos</h3>
+      <h5>12:06</h5>
+      
+      <div class="route">
+        <div class="station"> 
+          <div class="dot"> </div>
+          <h6>Sol</h6>
+        </div>
 
-    <div id="data"></div>
+        <div class="time">
+          <span>9min</span>
+        </div>
+
+        <div class="station">
+          <div class="dot">
+          </div>
+          <h6>Pajas</h6>
+        </div>
+
+        </div>
+      </div>
+  </section>
+
+      <div class="box" > <img src="./map.png" alt=""> </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/TarekRaafat/autoComplete.js@1.3.1/dist/js/autoComplete.min.js"></script>
 </body>
 
 </html>
