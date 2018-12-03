@@ -1,0 +1,42 @@
+.box{
+  /*Basic styling*/
+  background-color: white;
+  color: black;
+  padding: 25px 0px 25px 0px;
+  margin: 50px 100px 25px 100px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  /*flexbox setup */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.box > .container{
+  width: 250px;
+  padding: 5px;
+  font-style: bold;
+  text-align: left;
+}
+
+ .container input{
+  width: calc(100% - 14px);
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid lightgrey;
+}
+
+.container img{
+  width: 50px;
+  height: 25px;
+  padding-left: 100px;
+  padding-top: 15px;
+}
+
+#map{
+  height: 90px;
+}
+
+#body_atributes{
+  background-color: lightgray;
+}

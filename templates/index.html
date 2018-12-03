@@ -1,15 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Documento</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Obtener datos de las estacions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 
-<body>
+<body id="body_atributes">
+    <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+        }
 
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+
+      <div class="box" id = "top">
+
+        <div class="container">
+
+          <form class="inputs">
+            Origen
+            <input type="text" name="origen"> </input>
+          </form>
+        </div>
+
+        <div class="container">
+          <img src="/home/javitemek/web/arrow.png"></img>
+        </div>
+
+        <div class="container">
+          <form class="inputs">
+            Destino
+          <input type="text" name="origen"> </input>
+        </form>
+      </div>
+
+      </div>
+
+      <div class="box" id = "map"> <img src="../map.jpg" alt=""> </div>
+
+    <div id="data"></div>
 </body>
 
 </html>
