@@ -1,5 +1,5 @@
 import math
-
+import json
 
 class A_star():
     def load_station(self, name):
@@ -65,7 +65,7 @@ class A_star():
                 self.f_score[connected_station["name"]] = self.g_score[connected_station["name"]] + \
                     self.get_distance(connected_station, self.destination)
 
-    def init_variables(self, origin, destination, json):
+    def init_variables(self, origin, destination):
         '''
         Initialize all necessary variables in variables of a class.
         It is equal to say `this.variable` in Java. In python, we use `self.variable`
@@ -73,8 +73,6 @@ class A_star():
         self.origin = self.load_station(origin)
         self.destination = self.load_station(destination)
 
-        print(json)
-        self.json = json
 
         # Station which have been evaluated and are not good for our solution
         self.closed = []
@@ -98,13 +96,20 @@ class A_star():
         # For the first station, f score is the distance in line from origin to destination
         self.f_score[self.origin["name"]] = (self.origin, self.destination)
 
-    def __init__(self, origin, destination, json):
+    def __init__(self, origin, destination):
         if origin == destination:
             print("Su destino y origen son lo mismo")
             return
-        print(json)
-        
-        self.init_variables(origin, destination, json)
+
+        with open('../data/data.json') as d:
+            self.json = json.load(d)
+
+        self.init_variables(origin, destination)
 
         res = self.a_star()
+        print(res)
+        ratio = 18.0267
+        print(self.g_score[self.destination["name"]] * ratio)
+        print(self.get_distance(self.origin, self.destination))
 
+A_star('Beruni', 'Minor')
