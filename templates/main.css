@@ -40,10 +40,12 @@ section {
   flex-direction: column;
   justify-content: left;
 }
+
 .stations i{
   font-size: 36px;
   color: var(--grey-3);
 }
+
 input[type="text"]{
   width: calc(100% - 24px);
   border-radius: 5px;
@@ -56,6 +58,29 @@ input[type="text"]{
   text-transform: uppercase;
   font-size: 10px;
   font-weight: bold;
+}
+
+h3,h5{
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.route{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px 0;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.time{
+  flex-grow: 1;
+  text-align: center;
 }
 
 img {
