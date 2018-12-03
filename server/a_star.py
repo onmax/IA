@@ -1,4 +1,3 @@
-import json
 import math
 
 
@@ -32,10 +31,10 @@ class A_star():
         total_path = [current]
         while current["name"] in self.route.keys():
             current = self.route[current["name"]]
-            total_path.append(current)
+            total_path = [current] + total_path
         return total_path
 
-    def a_star_algorithm_loop(self):
+    def a_star(self):
         '''
         This method implements A* with a loop
         '''
@@ -66,13 +65,16 @@ class A_star():
                 self.f_score[connected_station["name"]] = self.g_score[connected_station["name"]] + \
                     self.get_distance(connected_station, self.destination)
 
-    def init_variables(self, origin, destination):
+    def init_variables(self, origin, destination, json):
         '''
         Initialize all necessary variables in variables of a class.
         It is equal to say `this.variable` in Java. In python, we use `self.variable`
         '''
         self.origin = self.load_station(origin)
         self.destination = self.load_station(destination)
+
+        print(json)
+        self.json = json
 
         # Station which have been evaluated and are not good for our solution
         self.closed = []
@@ -96,23 +98,13 @@ class A_star():
         # For the first station, f score is the distance in line from origin to destination
         self.f_score[self.origin["name"]] = (self.origin, self.destination)
 
-    def __init__(self, origin, destination):
+    def __init__(self, origin, destination, json):
         if origin == destination:
             print("Su destino y origen son lo mismo")
             return
+        print(json)
+        
+        self.init_variables(origin, destination, json)
 
-        with open('../data/data.json') as data:
-            self.json = json.load(data)
+        res = self.a_star()
 
-        self.init_variables(origin, destination)
-
-        res = self.a_star_algorithm_loop()
-        print('\n', res)
-
-        for r in res:
-            print('Estation:', r["name"])
-
-        print('\n')
-
-
-A_star("Oybek", "Uzbekistan")
