@@ -1,11 +1,12 @@
 :root{
   --white: #fff;
-  --grey-1:#F3F3F3;
+  --background-color:#F3F3F3;
   --grey-2:#D9DEE1;
-  --grey-3:#95989A;
+  --grey-3:#c0c0c0;
+  --border-color:#95989A;
   --blue-1:#0800FF;
   --red-line:#E75C4E;
-  --green-line:;
+  --green-line:#55AC45;
   --blue-line:#0091CC;
 }
 * {
@@ -13,8 +14,48 @@
   margin: 0;
 }
 body{
-  background-color: var(--grey-1);
+  background: var(--background-color);
   font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 75px;
+}
+
+section {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  padding: 50px 40px;
+  margin: 50px 100px 25px 100px;
+}
+
+.stations form{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.stations form>div{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.stations i{
+  font-size: 36px;
+  color: var(--grey-3);
+}
+input[type="text"]{
+  width: calc(100% - 24px);
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid var(--grey-2);
+  margin-top: 4px;
+}
+
+.stations label{
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 img {
@@ -24,12 +65,11 @@ img {
 
 .box{
   /*Basic styling*/
-  background-color: white;
-  color: black;
+  background-color: var(--white);
   padding: 25px 0px 25px 0px;
   margin: 50px 100px 25px 100px;
   border-radius: 10px;
-  border: 1px solid grey;
+  border: 1px solid var(--border-color);
   /*flexbox setup */
   display: flex;
   flex-direction: row;
@@ -43,22 +83,10 @@ img {
   text-align: left;
 }
 
- .container input{
-  width: calc(100% - 14px);
-  border-radius: 5px;
-  padding: 5px;
-  border: 2px solid lightgrey;
+.container i{
+  padding:10px 100px;
+  font-size: 40px;
 }
 
-.container img{
-  width: 50px;
-  height: 25px;
-  padding-left: 100px;
-  padding-top: 15px;
-}
-
-#map{
-  height: 90px;
-}
 
 
