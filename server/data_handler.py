@@ -7,6 +7,11 @@ Array de salida (return)
 2. Todas intercambiadores intermedios
 3. Destino
 '''
+def unit_to_meters (distance):
+    ratio = 18.0267
+    return ratio*distance
+
+
 def main():
     res = []
     intercambios = []
@@ -21,20 +26,26 @@ def main():
                 for _station in data[color]:
                     if _station["name"] == station["name"]:
                         break
-            res.append([{"name": station["name"] + "," + "line": color + "," + "time": 1/500 * station["g_score"] + "," + "nstations": + i}])
+            res.append([{"name": station["name"], "line": color, "time": unit_to_meters(station["g_score"])*3/25, "nstations": i}])
             continue
         if i < len(arr) - 1 and station["x"] == arr[i + 1]["x"] and station["y"] == arr[i + 1]["y"]:
-            for color in data:
-                for _station in data[color]:
+            for color1 in data:
+                for _station in data[color1]:
                     if _station["name"] == station["name"]:
                         break
-            res.append([{"name": station["name"] + "," + "line": color + "," + "time": 1/500 * station["g_score"] + "," + "nstations": + i },{"name": arr[i+1]["name"] + "," + "line": color + "," + "time": 1/500 * station["g_score"] + "," + "nstations": + i+1}}])
+                    
+            for color2 in data:
+                for _station in data[color2]:
+                    if _station["name"] == arr[i+1]["name"]:
+                        break
+            res.append([{"name": station["name"],"line": color1 ,"time": unit_to_meters(station["g_score"])*3/25,"nstations": i },
+                        {"name": arr[i+1]["name"],"line": color2, "time": unit_to_meters(station["g_score"])*3/25, "nstations": i+1}])
         g_score.append(station["g_score"])
         stations.append(station["name"])
 
-    print(data)
-    print(g_score)
-    print(stations)
+    print(res)
+    #print(g_score)
+    #print(stations)
 
 
 

@@ -21,11 +21,7 @@ class A_star():
         current_closest_distance = 99999999
         current_closest = {}
         for candidate in self.candidates:
-<<<<<<< HEAD
             d = self.get_distance(candidate, self.destination) + self.g_score[candidate["name"]]
-=======
-            d = self.get_distance(candidate, self.destination)
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
             if d < current_closest_distance:
                 current_closest_distance = d
                 current_closest = candidate
@@ -100,16 +96,11 @@ class A_star():
         # For the first station, f score is the distance in line from origin to destination
         self.f_score[self.origin["name"]] = (self.origin, self.destination)
 
-<<<<<<< HEAD
     def __init__(self, origin, destination, data):
-=======
-    def __init__(self, origin, destination):
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
         if origin == destination:
             print("Su destino y origen son lo mismo")
             return
 
-<<<<<<< HEAD
         self.json = data
 
         self.init_variables(origin, destination)
@@ -119,17 +110,3 @@ class A_star():
         print(self.g_score[self.destination["name"]] * ratio)
         print(self.get_distance(self.origin, self.destination) * ratio)
         print(self.g_score)
-=======
-        with open('../data/data.json') as d:
-            self.json = json.load(d)
-
-        self.init_variables(origin, destination)
-
-        res = self.a_star()
-        print(res)
-        ratio = 18.0267
-        print(self.g_score[self.destination["name"]] * ratio)
-        print(self.get_distance(self.origin, self.destination))
-
-A_star('Beruni', 'Minor')
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0

@@ -1,16 +1,13 @@
 const stations =[
 	[
 		{
-			name: 'Sol',
+			name: 'Sol', 
 			line: 'blue',
 			time: 0,
 			nstation: 0
 		}
 	],
-<<<<<<< HEAD
 	
-=======
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
 	[
 		{
 			name: 'Atocha',
@@ -39,29 +36,12 @@ const h3 = document.createElement('h3');
 h3.innerHTML = `${time} minutos`;
 const results = document.querySelector('.results')
 
-<<<<<<< HEAD
 let date = new Date(new Date().getTime() + time*60000)
 const h5 = document.createElement('h5');
 h5.innerHTML = `${date.getHours()}:${date.getMinutes()}`
 
 results.append(h3);
 results.append(h5);
-=======
-const timeTaken = document.createElement('div')
-timeTaken.classList.add('time-taken')
-const icon = document.createElement('i')
-icon.className = 'far fa-clock'
-timeTaken.appendChild(icon)
-
-let date = new Date(new Date().getTime() + time*60000)
-const h5 = document.createElement('h5');
-h5.innerHTML = `${date.getHours()}:${date.getMinutes()}`
-timeTaken.appendChild(h5)
-
-results.append(h3);
-results.append(timeTaken);
-
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
 
 const route = document.createElement('div');
 route.classList.add('route')
@@ -110,7 +90,6 @@ stations.map((station,i) => {
 })
 
 maxWidth = stations.length * 100;
-<<<<<<< HEAD
 route.style.maxWidth = maxWidth;
 
 
@@ -124,18 +103,6 @@ new autoComplete({
 	placeHolder: "Try me...",
 	placeHolderLength: 26,
 	maxResults: 10,
-=======
-route.style.maxWidth = maxWidth + 'px';
-
-const stations_names = ["sol","Atocha","Gran Vías"]
-
-// The app instance creator
-new autoComplete({
-	dataSrc: stations_names,
-
-	placeHolderLength: 26,
-	maxResults: 9,
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
 	highlight: true,
 	dataAttribute: {
 		tag: "set",
@@ -145,7 +112,4 @@ new autoComplete({
 		document.querySelector(".selection").innerHTML = value.id;
 	}
 });
-<<<<<<< HEAD
 */
-=======
->>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
