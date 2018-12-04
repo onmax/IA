@@ -1,0 +1,150 @@
+{
+    "blue": [{
+        "x": 351,
+        "y": 995,
+        "name": "Beruni",
+        "connected_to": ["Tinchlik"]
+    }, {
+        "x": 407,
+        "y": 925,
+        "name": "Tinchlik",
+        "connected_to": ["Beruni","Chorsu"]
+    }, {
+        "x": 475,
+        "y": 880,
+        "name": "Chorsu",
+        "connected_to": ["Gafur Golum","Tinchlik"]
+    }, {
+        "x": 526,
+        "y": 901,
+        "name": "Gafur Golum",
+        "connected_to": ["Alisher Navoi","Chorsu"]
+    }, {
+        "x": 550,
+        "y": 847,
+        "name": "Alisher Navoi",
+        "connected_to": ["Gafur Golum","Uzbekistan","Pakhtakor"]
+    }, {
+        "x": 549,
+        "y": 803,
+        "name": "Uzbekistan",
+        "connected_to": ["Alisher Navoi","Kosmonavtlar"]
+    }, {
+        "x": 597,
+        "y": 773,
+        "name": "Kosmonavtlar",
+        "connected_to": ["Uzbekistan","Oybek"]
+    }, {
+        "x": 633,
+        "y": 735,
+        "name": "Oybek",
+        "connected_to": ["Kosmonavtlar","Toskent","Ming Urik"]
+    }, {
+        "x": 696,
+        "y": 704,
+        "name": "Toskent",
+        "connected_to": ["Oybek","Mashinasozlar"]
+    }, {
+        "x": 764,
+        "y": 745,
+        "name": "Mashinasozlar",
+        "connected_to": ["Toskent","Dostlik"]
+    }, {
+        "x": 837,
+        "y": 711,
+        "name": "Dostlik",
+        "connected_to": ["Mashinasozlar"]
+    }],
+    "red": [{
+        "x": 307,
+        "y": 494,
+        "name": "Olmazor",
+        "connected_to": ["Chilonzor"]
+    }, {
+        "x": 344,
+        "y": 596,
+        "name": "Chilonzor",
+        "connected_to": ["Olmazor","Mirzo Ulugbek"]
+    }, {
+        "x": 376,
+        "y": 642,
+        "name": "Mirzo Ulugbek",
+        "connected_to": ["Chilonzor","Novza"]
+    }, {
+        "x": 423,
+        "y": 695,
+        "name": "Novza",
+        "connected_to": ["Mirzo Ulugbek","Milliy Bog"]
+    }, {
+        "x": 477,
+        "y": 775,
+        "name": "Milliy Bog",
+        "connected_to": ["Novza","Bunyodkor"]
+    }, {
+        "x": 501,
+        "y": 820,
+        "name": "Bunyodkor",
+        "connected_to": ["Milliy Bog","Pakhtakor"]
+    }, {
+        "x": 550,
+        "y": 847,
+        "name": "Pakhtakor",
+        "connected_to": ["Bunyodkor","Mustakillik Maydoni","Alisher Navoi"]
+    }, {
+        "x": 619,
+        "y": 836,
+        "name": "Mustakillik Maydoni",
+        "connected_to": ["Pakhtakor","Amir Temur Hiyoboni"]
+    }, {
+        "x": 682,
+        "y": 818,
+        "name": "Amir Temur Hiyoboni",
+        "connected_to": ["Mustakillik Maydoni","Khamid Alimjan","Yunus Rajably"]
+    }, {
+        "x": 729,
+        "y": 850,
+        "name": "Khamid Alimjan",
+        "connected_to": ["Amir Temur Hiyoboni","Pushkin"]
+    }, {
+        "x": 795,
+        "y": 871,
+        "name": "Pushkin",
+        "connected_to": ["Khamid Alimjan","Buyuj Ipak Yuli"]
+    }, {
+        "x": 870,
+        "y": 894,
+        "name": "Buyuj Ipak Yuli",
+        "connected_to": ["Pushkin"]
+    }],
+    "green": [{
+        "x": 633,
+        "y": 735,
+        "name": "Ming Urik",
+        "connected_to": ["Yunus Rajably", "Oybek"]
+    }, {
+        "x": 682,
+        "y": 818,
+        "name": "Yunus Rajably",
+        "connected_to": ["Ming Urik","Abdulla Kodiriy","Amir Temur Hiyoboni"]
+    }, {
+        "x": 667,
+        "y": 850,
+        "name": "Abdulla Kodiriy",
+        "connected_to": ["Yunus Rajably","Minor"]
+    }, {
+        "x": 675,
+        "y": 907,
+        "name": "Minor",
+        "connected_to": ["Abdulla Kodiriy","Bodomzor"]
+    }, {
+        "x": 677,
+        "y": 956,
+        "name": "Bodomzor",
+        "connected_to": ["Minor","Shakhirston"]
+    }, {
+        "x": 689,
+        "y": 1034,
+        "name": "Shakhirston",
+        "connected_to": ["Bodomzor"]
+    }]
+}
