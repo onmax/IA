@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "blue": [{
+=======
+    "line1": [{
+>>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
         "x": 351,
         "y": 995,
         "name": "Beruni",
@@ -55,7 +59,11 @@
         "name": "Dostlik",
         "connected_to": ["Mashinasozlar"]
     }],
+<<<<<<< HEAD
     "red": [{
+=======
+    "line2": [{
+>>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
         "x": 307,
         "y": 494,
         "name": "Olmazor",
@@ -116,7 +124,11 @@
         "name": "Buyuj Ipak Yuli",
         "connected_to": ["Pushkin"]
     }],
+<<<<<<< HEAD
     "green": [{
+=======
+    "line3": [{
+>>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
         "x": 633,
         "y": 735,
         "name": "Ming Urik",

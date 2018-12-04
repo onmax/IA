@@ -29,17 +29,32 @@
   var getSearchInput = function getSearchInput() {
     return document.querySelector("#autoComplete");
   };
+<<<<<<< HEAD
+=======
+  
+>>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
   var createResultsList = function createResultsList(listContainer) {
     var list = document.createElement("ul");
     list.setAttribute("class", "autoComplete_results_list");
     listContainer.appendChild(list);
   };
+<<<<<<< HEAD
   var createResultsListContainer = function createResultsListContainer() {
     var listContainer = document.createElement("div");
+=======
+
+  var createResultsListContainer = function createResultsListContainer() {
+    var listContainer = document.createElement("div");
+    var results = document.querySelector("#result");
+>>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
     listContainer.setAttribute("class", "autoComplete_results_list_container");
     getSearchInput().insertAdjacentElement("afterend", listContainer);
     createResultsList(listContainer);
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> a909ac38d3c4bb688373285debdd7f1f5ec435e0
   createResultsListContainer();
   var addResultsToList = function addResultsToList(results, cleanResults, dataAttribute) {
     var resultState;
