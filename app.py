@@ -18,4 +18,7 @@ def route():
     destination = request.args.get('destination')
     route = (a_star(origin, destination, data)).all_route
     print(route)
-    return render_template('./index.html', route=route, stations=data)
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('./index.html')

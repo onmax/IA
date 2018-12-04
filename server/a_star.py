@@ -110,3 +110,16 @@ class A_star():
         print(self.g_score[self.destination["name"]] * ratio)
         print(self.get_distance(self.origin, self.destination) * ratio)
         print(self.g_score)
+<<<<<<< HEAD
+=======
+
+        self.init_variables(origin, destination)
+
+        res = self.a_star()
+        print(res)
+        ratio = 18.0267
+        print(self.g_score[self.destination["name"]] * ratio)
+        print(self.get_distance(self.origin, self.destination))
+
+A_star('Beruni', 'Minor')
+>>>>>>> d34b57522597e9d971b98799ef5a988a857dbb5e
