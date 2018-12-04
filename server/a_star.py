@@ -101,7 +101,7 @@ class A_star():
             print("Su destino y origen son lo mismo")
             return
 
-        with open('../data/data.json') as d:
+        with open('./data/data.json') as d:
             self.json = json.load(d)
 
         self.init_variables(origin, destination)
