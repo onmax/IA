@@ -9,10 +9,12 @@
   --green-line:#55AC45;
   --blue-line:#0091CC;
 }
+
 * {
   padding: 0;
   margin: 0;
 }
+
 body{
   border-top-style: solid;
   border-top-color: #0800FF;
@@ -30,6 +32,7 @@ section {
   padding: 20px 40px;
   margin: 50px 100px 25px 100px;
 }
+
 section.results{
   padding-bottom: 40px;
 }

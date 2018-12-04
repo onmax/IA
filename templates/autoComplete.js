@@ -29,17 +29,21 @@
   var getSearchInput = function getSearchInput() {
     return document.querySelector("#autoComplete");
   };
+  
   var createResultsList = function createResultsList(listContainer) {
     var list = document.createElement("ul");
     list.setAttribute("class", "autoComplete_results_list");
     listContainer.appendChild(list);
   };
+
   var createResultsListContainer = function createResultsListContainer() {
     var listContainer = document.createElement("div");
+    var results = document.querySelector("#result");
     listContainer.setAttribute("class", "autoComplete_results_list_container");
     getSearchInput().insertAdjacentElement("afterend", listContainer);
     createResultsList(listContainer);
   };
+
   createResultsListContainer();
   var addResultsToList = function addResultsToList(results, cleanResults, dataAttribute) {
     var resultState;

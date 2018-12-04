@@ -49,6 +49,7 @@ timeTaken.appendChild(h5)
 results.append(h3);
 results.append(timeTaken);
 
+
 const route = document.createElement('div');
 route.classList.add('route')
 stations.map((station,i) => {
@@ -98,17 +99,14 @@ stations.map((station,i) => {
 maxWidth = stations.length * 100;
 route.style.maxWidth = maxWidth + 'px';
 
+const stations_names = ["sol","Atocha","Gran Vías"]
 
-
-
-
-/*
 // The app instance creator
 new autoComplete({
-	dataSrc: stations,
-	placeHolder: "Try me...",
+	dataSrc: stations_names,
+
 	placeHolderLength: 26,
-	maxResults: 10,
+	maxResults: 9,
 	highlight: true,
 	dataAttribute: {
 		tag: "set",
@@ -118,4 +116,3 @@ new autoComplete({
 		document.querySelector(".selection").innerHTML = value.id;
 	}
 });
-*/
