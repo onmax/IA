@@ -82,20 +82,21 @@ h3,h5{
   --lenght: 25px;
   height: var(--lenght);
   width: var(--lenght);
+  display: flex;
 }
 
 .dot .top{
   border-top-left-radius: calc(var(--lenght) * 2);
-  border-top-right-radius: calc(var(--lenght) * 2);
-  height: 50%;
+  border-bottom-left-radius: calc(var(--lenght) * 2);
+  width: 12.5px;
 }
 
 
 
 .dot .bottom{
-  border-bottom-left-radius:  calc(var(--lenght) * 2);
+  border-top-right-radius:  calc(var(--lenght) * 2);
   border-bottom-right-radius: calc(var(--lenght) * 2);
-  height: 50%;
+  width: 12.5px;
 }
 
 .dot .blue{

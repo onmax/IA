@@ -7,7 +7,6 @@ const stations =[
 			nstation: 0
 		}
 	],
-	
 	[
 		{
 			name: 'Atocha',
