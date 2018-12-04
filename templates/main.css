@@ -27,8 +27,11 @@ section {
   background: var(--white);
   border-radius: 10px;
   border: 1px solid var(--border-color);
-  padding: 50px 40px;
+  padding: 20px 40px;
   margin: 50px 100px 25px 100px;
+}
+section.results{
+  padding-bottom: 40px;
 }
 
 .stations form{
@@ -46,6 +49,7 @@ section {
 .stations i{
   font-size: 36px;
   color: var(--grey-3);
+  margin: 0 5px;
 }
 
 input[type="text"]{
@@ -61,10 +65,11 @@ input[type="text"]{
   font-size: 10px;
   font-weight: bold;
 }
-
+.station {
+  position: relative;
+}
 h3,h5{
   text-align: center;
-  margin-bottom: 25px;
 }
 
 .route{
@@ -98,13 +103,29 @@ h3,h5{
 }
 
 h6{
-  transform-origin: 71% 270%;
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
   text-align: right;
   position: absolute;
+  white-space: nowrap;
+  top: 36px;
+  right: 13px;
 }
 
+.time-taken{
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.time-taken h5{
+  margin-left: 5px;
+}
+
+.time-taken i{
+  color: #615d5d;
+  font-size: 13px;
+}
 .line{
   width: 100%;
   height: 2px;

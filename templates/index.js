@@ -36,12 +36,19 @@ const h3 = document.createElement('h3');
 h3.innerHTML = `${time} minutos`;
 const results = document.querySelector('.results')
 
+const timeTaken = document.createElement('div')
+timeTaken.classList.add('time-taken')
+const icon = document.createElement('i')
+icon.className = 'far fa-clock'
+timeTaken.appendChild(icon)
+
 let date = new Date(new Date().getTime() + time*60000)
 const h5 = document.createElement('h5');
 h5.innerHTML = `${date.getHours()}:${date.getMinutes()}`
+timeTaken.appendChild(h5)
 
 results.append(h3);
-results.append(h5);
+results.append(timeTaken);
 
 const route = document.createElement('div');
 route.classList.add('route')
@@ -90,7 +97,7 @@ stations.map((station,i) => {
 })
 
 maxWidth = stations.length * 100;
-route.style.maxWidth = maxWidth;
+route.style.maxWidth = maxWidth + 'px';
 
 
 
