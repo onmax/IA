@@ -28,9 +28,11 @@ class A_star():
         return current_closest
 
     def reconstruct_path(self, current):
+        current["g_score"] = self.g_score[current["name"]]
         total_path = [current]
         while current["name"] in self.route.keys():
             current = self.route[current["name"]]
+            current["g_score"] = self.g_score[current["name"]]
             total_path = [current] + total_path
         return total_path
 
@@ -119,4 +121,3 @@ class A_star():
         print(self.g_score[self.destination["name"]] * ratio)
         print(self.get_distance(self.origin, self.destination))
 
-A_star('Beruni', 'Minor')
