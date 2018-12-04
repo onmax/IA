@@ -13,15 +13,18 @@ def get_color(data, station):
         for _station in data[color]:
             if _station["name"] == station["name"]:
                 return color
+def unit_to_meters (distance):
+    ratio = 18.0267
+    return ratio*distance
+
 def main(arr, data):
     res = []
 
     for i,station in enumerate(arr):
         if i == 0 or i == len(arr) -1:
-            res.append([{"name": station["name"]  , "line": get_color(data, station), "time": station["g_score"]/6000, "nstations": + i}])
-            continue
+            res.append([{"name": station["name"]  , "line": get_color(data, station), "time": unit_to_meters(station["g_score"])*3/25, "nstations": + i}])
         if i < len(arr) - 1 and station["x"] == arr[i + 1]["x"] and station["y"] == arr[i + 1]["y"]:
-            res.append([{"name": station["name"],"line": get_color(data, station), "time": station["g_score"]/6000, "nstations": + i },{"name": arr[i+1]["name"],"line": get_color(data, arr[i+1]), "time": station["g_score"]/6000, "nstations": + i+1}])
+            res.append([{"name": station["name"],"line": get_color(data, station), "time": unit_to_meters(station["g_score"])*3/25, "nstations": + i },{"name": arr[i+1]["name"],"line": get_color(data, arr[i+1]), "time": unit_to_meters(station["g_score"])*3/25, "nstations": + i+1}])
 
     return res
 
