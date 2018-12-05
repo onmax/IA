@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/main.css') }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TarekRaafat/autoComplete.js@1.3.1/dist/css/autoComplete.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 
@@ -19,6 +18,7 @@
         <label for="origin">Origen</label>
         <!---div autoComplete-->
         <input type="text" name="origin" id="autoComplete" placeholder="Estación Origen">
+        <div class="selection"></div>
       </div>
 
       <i class="fas fa-long-arrow-alt-right"></i>
@@ -34,28 +34,27 @@
 
   </section>
 
-    <div class="box" >
-      <img src="{{ url_for('static', filename='map.png') }}" alt="">
-    </div>
+  <section>
+    <img src="{{ url_for('static', filename='map.png') }}" alt="">
+  </section>
+
 
     <script>
-        const stations = JSON.parse('{{ stations | tojson | safe}}');
+        const stationsAndLines = JSON.parse('{{ stations | tojson | safe}}');
         const simpleRoute = JSON.parse('{{ simple_route | tojson | safe}}');
         const complexRoute = JSON.parse('{{ route | tojson | safe}}');
-        console.log(simpleRoute);
+        let stations = [];
+        Object.keys(stationsAndLines).map(key => {
+          stationsAndLines[key].map(station => {
+            stations.push(station.name)
+          })
+        })
+        console.log(stations);
     </script>
 
   </section>
-
-      <div class="box" > <img src="./map.png" alt=""> </div>
-    <script src="./autoComplete.js"></script>
-    <script src="./index.js"></script>
-
-
+    <script src ="{{ url_for('static', filename='js/autoComplete.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-    <!--
-      <script src="https://cdn.jsdelivr.net/gh/TarekRaafat/autoComplete.js@1.3.1/dist/js/autoComplete.min.js"></script>
-    -->
 </body>
 
 </html>

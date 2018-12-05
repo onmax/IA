@@ -17,7 +17,8 @@
 
 body{
   border-top-style: solid;
-  border-top-color: #0800FF;
+  border-top-color: #3F7FBD;
+  border-top-width: 6px;
   background: var(--background-color);
   font-family: 'Lato', sans-serif;
   display: flex;
@@ -30,7 +31,8 @@ section {
   border-radius: 10px;
   border: 1px solid var(--border-color);
   padding: 20px 40px;
-  margin: 50px 100px 25px 100px;
+  margin: 20px auto;
+  width: calc(100% - 80px);
 }
 
 section.results{
@@ -55,6 +57,35 @@ section.results{
   margin: 0 5px;
 }
 
+/****************************INPUTS*****************************/
+.origin{
+  position: relative;
+}
+.autoComplete_results_list_container {
+  position: absolute;
+  top: 55px;
+  background: white;
+  border: 2px solid var(--grey-2);
+  border-radius: 5px;
+  width: calc(100% - 4px);
+  box-shadow: 0px 5px 17px -9px #888;
+}
+
+.autoComplete_results_list_container ul {
+  list-style-type: none;
+}
+.autoComplete_results_list_container ul li{
+  font-size: 10px;
+  padding: 10px 0;
+  padding-left: 10px;
+}
+.autoComplete_results_list_container ul li:hover{
+  background: var(--grey-2);
+  cursor: pointer;
+}
+
+
+
 input[type="text"]{
   width: calc(100% - 24px);
   border-radius: 5px;
@@ -62,6 +93,9 @@ input[type="text"]{
   border: 2px solid var(--grey-2);
   margin-top: 4px;
 }
+/**************************END INPUTS***************************/
+
+
 
 .stations label{
   text-transform: uppercase;
@@ -155,26 +189,6 @@ h6{
 img {
   width: 100%;
   height: 100%;
-}
-
-.box{
-  /*Basic styling*/
-  background-color: var(--white);
-  padding: 25px 0px 25px 0px;
-  margin: 50px 100px 25px 100px;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  /*flexbox setup */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.box > .container{
-  width: 250px;
-  padding: 5px;
-  font-style: bold;
-  text-align: left;
 }
 
 .container i{

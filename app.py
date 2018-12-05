@@ -12,7 +12,7 @@ data = get_json()
 
 @app.route('/')
 def index():
-    return render_template('./index.html', stations=data)
+    return render_template('./index.html', stations=data, route=[], simple_route=[])
 
 @app.route('/route', methods=['GET'])
 def route():
