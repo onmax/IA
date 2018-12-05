@@ -70,7 +70,7 @@ maxWidth = simpleRoute.length * 100;
 routeDiv.style.maxWidth = maxWidth + 'px';
 
 const simpleRoute_names = ["sol","Atocha","Gran Vías"]
-/*
+
 // The app instance creator
 new autoComplete({
 	dataSrc: simpleRoute_names,
@@ -86,4 +86,3 @@ new autoComplete({
 		document.querySelector(".selection").innerHTML = value.id;
 	}
 });
-*/
