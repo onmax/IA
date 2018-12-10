@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global.autoComplete = factory());
+  (global.autoCompleteOrigin = factory());
 }(this, (function () { 'use strict';
 
   function _classCallCheck(instance, Constructor) {
@@ -27,7 +27,7 @@
   }
 
   var getSearchInput = function getSearchInput() {
-    return document.querySelector("#autoComplete");
+    return document.querySelector("#autoCompleteOrigin");
   };
   
   var createResultsList = function createResultsList(listContainer) {
@@ -75,11 +75,13 @@
   ["focus", "blur"].forEach(function (eventType) {
     var result = document.querySelector(".autoComplete_results_list");
     getSearchInput().addEventListener(eventType, function () {
+      /*
       if (eventType === "blur") {
         result.style = "opacity: 0; visibility: hidden;";
       } else {
         result.style = "opacity: 1; visibility: visible;";
       }
+      */
     });
   });
   var clearInput = function clearInput() {
@@ -219,6 +221,6 @@
     return autoComplete;
   }();
 
-  return autoComplete;
+  return autoCompleteOrigin;
 
 })));

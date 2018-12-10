@@ -1,11 +1,10 @@
-console.log(simpleRoute.length);
 if(simpleRoute.length){
 
-	const time = simpleRoute.reduce((a,b)=>a.concat(b)).reduce((t,station) =>  t + station.time,0);
+	let time = simpleRoute.reduce((a,b)=>a.concat(b)).reduce((t,station) =>  t + station.time,0);
+	time = Math.floor(time / 60);
 	const h3 = document.createElement('h3');
 	h3.innerHTML = `${time} minutos`;
 	const results = document.querySelector('.results')
-	
 	const timeTaken = document.createElement('div')
 	timeTaken.classList.add('time-taken')
 	const icon = document.createElement('i')
@@ -19,10 +18,9 @@ if(simpleRoute.length){
 	
 	results.append(h3);
 	results.append(timeTaken);
-	
-	
+
 	const routeDiv = document.createElement('div');
-	routeDiv.classList.add('routeDiv')
+	routeDiv.classList.add('route')
 	simpleRoute.map((station,i) => {
 		const stationDiv = document.createElement('div'); 
 			//<div></div>
@@ -49,44 +47,94 @@ if(simpleRoute.length){
 
 		dot.appendChild(top)
 		dot.appendChild(bottom)
-
-		const h6 = document.createElement('h6');
-		//<h6></h6>
-		h6.innerHTML = station[0].name;
-
 		stationDiv.appendChild(dot)
-		stationDiv.appendChild(h6)
+
+		const h6_1 = document.createElement('h6');
+		//<h6></h6>
+		stationDiv.appendChild(h6_1)
+		h6_1.innerHTML = station[0].name;
+		if(station.length === 2){
+			const h6_2 = document.createElement('h6');
+			h6_2.innerHTML = station[1].name;
+			h6_2.style.top = '70px';
+
+			const i  =document.createElement('i');
+			i.className = 'fas fa-long-arrow-alt-down'
+			i.style = 'font-size:18px;margin-top: 20px;color:#c0c0c0';
+			stationDiv.appendChild(i);
+			stationDiv.appendChild(h6_2);
+		}
 
 		routeDiv.appendChild(stationDiv);
 		results.append(routeDiv);
 		if (i < simpleRoute.length - 1){
+			const lineDiv = document.createElement('div')
+			lineDiv.classList.add('line-box')
 			const line = document.createElement('div');
 			line.classList.add('line');
-			routeDiv.appendChild(line);
+			const span = document.createElement('span');
+			span.innerHTML = simpleRoute[i + 1][0].nstations + ' paradas'
+			lineDiv.appendChild(span);
+			lineDiv.appendChild(line);
+			routeDiv.appendChild(lineDiv);
 		}
 	})
 
 	maxWidth = simpleRoute.length * 100;
 	routeDiv.style.maxWidth = maxWidth + 'px';
-
-	const simpleRoute_names = ["sol","Atocha","Gran Vías"]
-
-	
 } else {
-	
+	document.querySelector('.results').style = 'display: none;';
 }
 
-// The app instance creator
-new autoComplete({
-dataSrc: stations,
-placeHolderLength: 26,
-maxResults: 9,
-highlight: true,
-dataAttribute: {
-	tag: "set",
-	value: "value"
-},
-onSelection: value => {
-	document.querySelector(".selection").innerHTML = value.id;
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+	}
+	return array;
 }
+
+
+let origin = '', destination = ''
+// The app instance creator
+new autoCompleteOrigin({
+	dataSrc: shuffleArray(stations),
+	placeHolderLength: 26,
+	maxResults: 9,
+	highlight: true,
+	dataAttribute: {
+		tag: "set",
+		value: "value"
+	},
+	onSelection: value => {
+		origin = value.id;
+		sendRequest();
+		document.getElementById("autoCompleteOrigin").value = value.id;
+	}
 });
+
+new autoCompleteDestination({
+	dataSrc: shuffleArray(stations),
+	placeHolderLength: 26,
+	maxResults: 9,
+	highlight: true,
+	dataAttribute: {
+		tag: "set",
+		value: "value"
+	},
+	onSelection: value => {
+		destination = value.id;
+		sendRequest();
+		document.getElementById("autoCompleteDestination").value = value.id;
+	}
+});
+
+function sendRequest() {
+	if(origin !== '' && destination !== ''){
+		console.log(origin, destination);
+		window.location.replace(`http://localhost:5000/route?origin=${origin}&destination=${destination}`);
+	}
+}

@@ -17,7 +17,7 @@
       <div class="origin">
         <label for="origin">Origen</label>
         <!---div autoComplete-->
-        <input type="text" name="origin" id="autoComplete" placeholder="Estación Origen">
+        <input type="text" name="origin" id="autoCompleteOrigin" placeholder="Estación Origen">
         <div class="selection"></div>
       </div>
 
@@ -25,7 +25,8 @@
 
       <div class="destination">
         <label for="destination">Destino</label>
-        <input type="text" name="destination" id="destino" placeholder="Estación Destino">
+        <input type="text" name="destination" id="autoCompleteDestination" placeholder="Estación Destino">
+        <div class="selection"></div>
       </div>
     </form>
   </section>
@@ -46,14 +47,18 @@
         let stations = [];
         Object.keys(stationsAndLines).map(key => {
           stationsAndLines[key].map(station => {
-            stations.push(station.name)
+            stations.push({
+              name: station.name,
+              color: key
+            })
           })
         })
         console.log(stations);
     </script>
 
   </section>
-    <script src ="{{ url_for('static', filename='js/autoComplete.js') }}"></script>
+    <script src ="{{ url_for('static', filename='js/autoCompleteOrigin.js') }}"></script>
+    <script src ="{{ url_for('static', filename='js/autoCompleteDestination.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
