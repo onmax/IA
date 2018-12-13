@@ -138,3 +138,48 @@ function sendRequest() {
 		window.location.replace(`http://localhost:5000/route?origin=${origin}&destination=${destination}`);
 	}
 }
+
+
+
+function setTable(){
+	const table = document.querySelector('.table');
+	table.style.gridTemplateRows = `repeat(${scores.length}, 1fr)`
+	scores.map((a, i) => {
+		const row = document.createElement('div');
+		row.classList.add('row');
+
+		
+
+		const container = document.createElement('div');
+		a.candidates.map(candidate => {
+			const index = document.createElement('span');
+			index.innerHTML = i;
+			container.appendChild(index);
+			
+			const stationName = document.createElement('span');
+			if(candidate.name === a.selected){
+				stationName.style.background = 'rgb(218, 214, 214)';
+			}
+			stationName.innerHTML = candidate.name;
+			container.appendChild(stationName);
+
+			const gScore = document.createElement('span');
+			gScore.innerHTML =  Math.floor(candidate.g_score);
+			container.appendChild(gScore);
+
+			const hScore = document.createElement('span');
+			hScore.innerHTML = Math.floor(candidate.h_score);
+			container.appendChild(hScore);
+
+			const fScore = document.createElement('span');
+			fScore.innerHTML =  Math.floor(candidate.f_score);
+			container.appendChild(fScore);
+		})
+
+		row.appendChild(container);		
+		table.appendChild(row)
+
+		
+	})
+}
+setTable();
