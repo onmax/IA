@@ -40,10 +40,12 @@
   </section>
 
 
+
     <script>
         const stationsAndLines = JSON.parse('{{ stations | tojson | safe}}');
         const simpleRoute = JSON.parse('{{ simple_route | tojson | safe}}');
         const complexRoute = JSON.parse('{{ route | tojson | safe}}');
+        const scores = JSON.parse('{{ scores | tojson | safe}}');
         let stations = [];
         Object.keys(stationsAndLines).map(key => {
           stationsAndLines[key].map(station => {
@@ -54,6 +56,7 @@
           })
         })
         console.log(stations);
+        console.log(scores);
     </script>
 
   </section>

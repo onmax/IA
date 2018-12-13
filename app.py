@@ -12,14 +12,16 @@ data = get_json()
 
 @app.route('/')
 def index():
-    return render_template('./index.html', stations=data, route=[], simple_route=[])
+    return render_template('./index.html', stations=data, route=[], simple_route=[], scores=[])
 
 @app.route('/route', methods=['GET'])
 def route():
     route = {}
     origin = request.args.get('origin')
     destination = request.args.get('destination')
-    route = (a_star(origin, destination, data)).all_route
+    
+    a_star_solution = a_star(origin, destination, data)
+    route = a_star_solution.all_route
     simple_route = data_handler.main(route, data)
-    return render_template('./index.html', stations=data, route=route, simple_route=simple_route)
+    return render_template('./index.html', stations=data, route=route, simple_route=simple_route, scores=a_star_solution.iterations)
 

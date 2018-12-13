@@ -27,6 +27,23 @@ class A_star():
                 current_closest = candidate
         return current_closest
 
+    def append_iteration(self, current):
+        candidates_info = []
+        for candidate in self.candidates:
+            h = self.get_distance(candidate, self.destination)
+            g = self.g_score[current["name"]]
+            candidates_info.append({
+                "name": candidate["name"],
+                "h_score": h,
+                "g_score": g,
+                "f_score": h + g
+            })
+        self.iterations.append({
+            "selected": current["name"],
+            "candidates": candidates_info
+        })
+
+
     def reconstruct_path(self, current):
         current["g_score"] = self.g_score[current["name"]]
         total_path = [current]
@@ -42,8 +59,13 @@ class A_star():
         '''
         while len(self.candidates) != 0:
             current = self.which_is_closest()
+            
+            # append items to iterations
+            self.append_iteration(current)
+
             if current["name"] == self.destination["name"]:
                 return self.reconstruct_path(current)
+            
             self.candidates.remove(current)
             self.closed.append(current)
 
@@ -74,6 +96,9 @@ class A_star():
         '''
         self.origin = self.load_station(origin)
         self.destination = self.load_station(destination)
+
+
+        self.iterations = []
 
 
         # Station which have been evaluated and are not good for our solution
