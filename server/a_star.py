@@ -21,7 +21,7 @@ class A_star():
         current_closest_distance = 99999999
         current_closest = {}
         for candidate in self.candidates:
-            d = self.get_distance(candidate, self.destination) + self.g_score[candidate["name"]]
+            d = self.get_distance(candidate, self.destination)
             if d < current_closest_distance:
                 current_closest_distance = d
                 current_closest = candidate
