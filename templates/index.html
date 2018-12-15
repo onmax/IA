@@ -2,14 +2,15 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Obtener datos de las estacions</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/main.css') }}" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  </head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Obtener datos de las estacions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/main.css') }}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
 
 <body>
   <section class="stations">
@@ -47,36 +48,34 @@
       <h5>Valor de h</h5>
       <h5>Valor de f</h5>
     </div>
-      <div class="table">
-      </div>
-    
+    <div class="table">
+    </div>
+
     </div>
   </section>
 
 
-    <script>
-        const stationsAndLines = JSON.parse('{{ stations | tojson | safe}}');
-        const simpleRoute = JSON.parse('{{ simple_route | tojson | safe}}');
-        const complexRoute = JSON.parse('{{ route | tojson | safe}}');
-        const scores = JSON.parse('{{ scores | tojson | safe}}');
-        let stations = [];
-        Object.keys(stationsAndLines).map(key => {
-          stationsAndLines[key].map(station => {
-            stations.push({
-              name: station.name,
-              color: key
-            })
-          })
+  <script>
+    const stationsAndLines = JSON.parse('{{ stations | tojson | safe}}');
+    const simpleRoute = JSON.parse('{{ simple_route | tojson | safe}}');
+    const complexRoute = JSON.parse('{{ route | tojson | safe}}');
+    const scores = JSON.parse('{{ scores | tojson | safe}}');
+    let time = JSON.parse('{{ time | tojson | safe}}');
+    let stations = [];
+    Object.keys(stationsAndLines).map(key => {
+      stationsAndLines[key].map(station => {
+        stations.push({
+          name: station.name,
+          color: key
         })
-        console.log(stations);
-        console.log(scores);
-        console.log(simpleRoute);
-    </script>
+      })
+    })
+  </script>
 
   </section>
-    <script src ="{{ url_for('static', filename='js/autoCompleteOrigin.js') }}"></script>
-    <script src ="{{ url_for('static', filename='js/autoCompleteDestination.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/autoCompleteOrigin.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/autoCompleteDestination.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>

@@ -43,7 +43,6 @@ class A_star():
             "candidates": candidates_info
         })
 
-
     def reconstruct_path(self, current):
         current["g_score"] = self.g_score[current["name"]]
         total_path = [current]
