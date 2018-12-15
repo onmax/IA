@@ -1,7 +1,9 @@
 if(simpleRoute.length){
 
 	let time = simpleRoute.reduce((a,b)=>a.concat(b)).reduce((t,station) =>  t + station.time,0);
-	time = Math.floor(time / 60);
+	time = Math.floor(time);
+	
+	
 	const h3 = document.createElement('h3');
 	h3.innerHTML = `${time} minutos`;
 	const results = document.querySelector('.results')
@@ -13,7 +15,15 @@ if(simpleRoute.length){
 	
 	let date = new Date(new Date().getTime() + time*60000)
 	const h5 = document.createElement('h5');
-	h5.innerHTML = `${date.getHours()}:${date.getMinutes()}`
+	let hour = date.getMinutes();
+	if(hour < 10){
+		hour = '0' + hour
+	}
+	let min = date.getMinutes();
+	if(min < 10){
+		min = '0' + min
+	}
+	h5.innerHTML = `${hour}:${min}`
 	timeTaken.appendChild(h5)
 	
 	results.append(h3);
@@ -73,7 +83,12 @@ if(simpleRoute.length){
 			const line = document.createElement('div');
 			line.classList.add('line');
 			const span = document.createElement('span');
-			span.innerHTML = simpleRoute[i + 1][0].nstations + ' paradas'
+
+			let paradas = simpleRoute[i + 1][0].nstations
+			if (i !== 0){
+				paradas -= 1
+			}
+			span.innerHTML = paradas + ' paradas'
 			lineDiv.appendChild(span);
 			lineDiv.appendChild(line);
 			routeDiv.appendChild(lineDiv);

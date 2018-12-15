@@ -208,8 +208,7 @@ h6 {
   position: absolute;
   font-size: 12px;
   color: #777;
-bottom: 53px;
-
+  top: -4px;
 }
 .line {
   width: 100%;
