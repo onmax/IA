@@ -9,13 +9,15 @@ if(simpleRoute.length){
 	const results = document.querySelector('.results')
 	const timeTaken = document.createElement('div')
 	timeTaken.classList.add('time-taken')
+
+
 	const icon = document.createElement('i')
 	icon.className = 'far fa-clock'
 	timeTaken.appendChild(icon)
-	
+
 	let date = new Date(new Date().getTime() + time*60000)
 	const h5 = document.createElement('h5');
-	let hour = date.getMinutes();
+	let hour = date.getHours();
 	if(hour < 10){
 		hour = '0' + hour
 	}
@@ -23,7 +25,7 @@ if(simpleRoute.length){
 	if(min < 10){
 		min = '0' + min
 	}
-	h5.innerHTML = `${hour}:${min}`
+	h5.innerHTML = `Hora de llegada: ${hour}:${min}` // hour + ':' + min
 	timeTaken.appendChild(h5)
 	
 	results.append(h3);
@@ -95,7 +97,7 @@ if(simpleRoute.length){
 		}
 	})
 
-	maxWidth = simpleRoute.length * 100;
+	maxWidth = simpleRoute.length * 150;
 	routeDiv.style.maxWidth = maxWidth + 'px';
 } else {
 	document.querySelector('.results').style = 'display: none;';
