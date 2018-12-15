@@ -74,7 +74,7 @@ class A_star():
                     continue
 
                 # The distance from start to a connected_station
-                cost_of_time = self.g_score[current["name"]] + \
+                g = self.g_score[current["name"]] + \
                     self.get_distance(current, connected_station)
 
                 if connected_station not in self.candidates:  # Discover a new node
@@ -84,8 +84,8 @@ class A_star():
 
                 # This route is the best until now so we save all necessary data
                 self.route[connected_station["name"]] = current
-                self.g_score[connected_station["name"]] = cost_of_time
-                self.f_score[connected_station["name"]] = self.g_score[connected_station["name"]] + \
+                self.g_score[connected_station["name"]] = g
+                self.f_score[connected_station["name"]] = g + \
                     self.get_distance(connected_station, self.destination)
 
     def init_variables(self, origin, destination):
@@ -120,7 +120,7 @@ class A_star():
         self.f_score = {}
 
         # For the first station, f score is the distance in line from origin to destination
-        self.f_score[self.origin["name"]] = (self.origin, self.destination)
+        self.f_score[self.origin["name"]] = self.get_distance(self.origin, self.destination)
 
     def __init__(self, origin, destination, data):
         if origin == destination:
