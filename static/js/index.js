@@ -1,8 +1,11 @@
 if(simpleRoute.length){
-
-	let time = simpleRoute.reduce((a,b)=>a.concat(b)).reduce((t,station) =>  t + station.time,0);
-	time = Math.floor(time);
+	let time = 0;
+	for(let i = 0; i < simpleRoute.length - 1; i++){
+		time += simpleRoute[i][0].time
+	}
+	console.log(time);
 	
+	time = Math.floor(time);
 	
 	const h3 = document.createElement('h3');
 	h3.innerHTML = `${time} minutos`;

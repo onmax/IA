@@ -13,7 +13,7 @@
         "x": 475,
         "y": 880,
         "name": "Chorsu",
-        "connected_to": ["Gafur Golum","Tinchlik"]
+        "connected_to": ["Gafur Gulom","Tinchlik"]
     }, {
         "x": 526,
         "y": 901,
@@ -23,7 +23,7 @@
         "x": 550,
         "y": 847,
         "name": "Alisher Navoi",
-        "connected_to": ["Gafur Golum","Uzbekistan","Pakhtakor"]
+        "connected_to": ["Gafur Gulom","Uzbekistan","Pakhtakor"]
     }, {
         "x": 549,
         "y": 803,
