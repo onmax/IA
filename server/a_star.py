@@ -79,7 +79,7 @@ class A_star():
 
                 if connected_station not in self.candidates:  # Discover a new node
                     self.candidates.append(connected_station)
-                elif cost_of_time >= self.g_score[connected_station["name"]]:
+                elif g >= self.g_score[connected_station["name"]]:
                     continue
 
                 # This route is the best until now so we save all necessary data
