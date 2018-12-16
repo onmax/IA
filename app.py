@@ -22,7 +22,7 @@ def route():
     
     a_star_solution = a_star(origin, destination, data)
     route = a_star_solution.all_route
-    simple_route = data_handler.main(route, data)
+    simple_route = data_handler.get_simple_route(route, data)
 
 
     return render_template('./index.html', stations=data, route=route, simple_route=simple_route, scores=a_star_solution.iterations, time = data_handler.get_time(a_star_solution.f_score[destination], len(simple_route) - 2))

@@ -29,7 +29,7 @@ def get_time(distance, nstations):
     # minutes in the train + minutes changing lines 
     return unit_to_km(distance) + nstations * 3
 
-def main(arr, data):
+def get_simple_route(arr, data):
     nstations = 0
     res = []
 

@@ -14,6 +14,7 @@
 
 <body>
   <section class="stations">
+    <p id="msg"></p>
     <form method="GET" action="/">
       <div class="origin">
         <label for="origin">Origen</label>
@@ -62,6 +63,12 @@
     const scores = JSON.parse('{{ scores | tojson | safe}}');
     let time = JSON.parse('{{ time | tojson | safe}}');
     let stations = [];
+    console.log('stationsAndLines', stationsAndLines);
+    console.log('simpleRoute', simpleRoute);
+    console.log('complexRoute', complexRoute);
+    console.log('scores', scores);
+    console.log('time', time);
+
     Object.keys(stationsAndLines).map(key => {
       stationsAndLines[key].map(station => {
         stations.push({
