@@ -105,7 +105,7 @@ body: {
 ### Obtener ruta más corta entre dos estaciones
 
 ```
-GET /get-route?origin=string&destination=string
+GET /route?origin=string&destination=string
 
 ```
 
