@@ -173,6 +173,8 @@ En esta práctica se hace uso del lenguaje de programación JS. Por una parte us
 ```
 
 Estos ficheros tienen todas la líneas necesarias para que el autocompletado funcione:
+<br>
+
 ![Autocomplete](./media/autocomplete.png)
 
 <br>
@@ -185,6 +187,8 @@ Por otro lado, se hace uso de:
 
 Este archivo se usa para que cuando reciba la ruta de una estación a otra, aparezca correctamente en el
 HTML:
+<br>
+
 ![Route](./media/route.png)
 
 También este archivo se utiliza para detectar cambios en los inputs text y cuando ambos inputs tengan un valor
